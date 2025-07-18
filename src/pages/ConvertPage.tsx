@@ -1,5 +1,4 @@
-    import React, { useState, useRef } from 'react';
-    const ConvertPage = () =>{
+const ConvertPage = () =>{
 
     return (
         <div className="convert-page">
