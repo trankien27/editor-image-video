@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './style/App.css';
 
-function App() {
+const App = ({ children }: { children: React.ReactNode }) => {
+  const [darkMode, setDarkMode] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) =>
+    location.pathname === path || (path === '/resize' && location.pathname === '/');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? 'app dark' : 'app'}>
+      <div className="taskbar">
+        <div className="taskbar-left">
+          <nav className="menu">
+            <Link to="/compress" className={isActive('/compress') ? 'active' : ''}>Compress</Link>
+            <Link to="/resize" className={isActive('/resize') ? 'active' : ''}>Resize</Link>
+            <Link to="/crop" className={isActive('/crop') ? 'active' : ''}>Crop</Link>
+            <Link to="/convert" className={isActive('/convert') ? 'active' : ''}>Convert</Link>
+            <Link to="/more" className={isActive('/more') ? 'active' : ''}>More</Link>
+          </nav>
+        </div>
+        <div className="taskbar-right">
+          <button onClick={() => setDarkMode(!darkMode)}>
+            {darkMode ? '🌞 Light' : '🌙 Dark'}
+          </button>
+          <button className="login-btn">Đăng nhập</button>
+        </div>
+      </div>
+      <div className="container">{children}</div>
     </div>
   );
-}
+};
 
 export default App;

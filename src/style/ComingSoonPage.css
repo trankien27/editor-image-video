@@ -1,0 +1,16 @@
+
+/* ComingSoonPage.css */
+.coming-soon-page {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.coming-soon-page h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.coming-soon-page p {
+  font-size: 16px;
+  color: #777;
+}

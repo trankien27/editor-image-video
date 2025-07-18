@@ -1,0 +1,57 @@
+/* AppLayout.css */
+.app {
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  background: #f8f9fa;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.app.dark {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+.taskbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e2e2e2;
+  padding: 10px 20px;
+}
+
+.taskbar.dark {
+  background: #333;
+}
+
+.menu a {
+  margin-right: 15px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.menu a.active {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #007bff;
+}
+
+.taskbar-right button {
+  margin-left: 10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #ccc;
+  transition: background 0.2s;
+}
+
+.taskbar-right button:hover {
+  background: #bbb;
+}
+
+.container {
+  padding: 20px;
+}
